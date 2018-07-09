@@ -69,7 +69,7 @@ let gridOptions = {
   enableFilter: true,
   columnDefs: columnDefs,
   enableColResize: true,
-  rowModelType: 'enterprise',
+  rowModelType: 'serverSide',
   cacheBlockSize: 100,
   rowGroupPanelShow: 'always',
   pivotPanelShow: 'always',
@@ -77,9 +77,9 @@ let gridOptions = {
   animateRows: false
 };
 
-function EnterpriseDatasource() {}
+function ServerSideDatasource() {}
 
-EnterpriseDatasource.prototype.getRows = function (params) {
+ServerSideDatasource.prototype.getRows = function (params) {
   let jsonRequest = JSON.stringify(params.request, null, 2);
   console.log(jsonRequest);
 
@@ -101,7 +101,7 @@ EnterpriseDatasource.prototype.getRows = function (params) {
 document.addEventListener('DOMContentLoaded', function () {
   let gridDiv = document.querySelector('#myGrid');
   new agGrid.Grid(gridDiv, gridOptions);
-  gridOptions.api.setEnterpriseDatasource(new EnterpriseDatasource());
+  gridOptions.api.setServerSideDatasource(new ServerSideDatasource());
 });
 
 let updateSecondaryColumns = function (request, result) {

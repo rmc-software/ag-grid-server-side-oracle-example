@@ -1,7 +1,7 @@
 package com.ag.grid.enterprise.oracle.demo.controller;
 
-import com.ag.grid.enterprise.oracle.demo.request.EnterpriseGetRowsRequest;
-import com.ag.grid.enterprise.oracle.demo.response.EnterpriseGetRowsResponse;
+import com.ag.grid.enterprise.oracle.demo.request.ServerSideGetRowsRequest;
+import com.ag.grid.enterprise.oracle.demo.response.ServerSideGetRowsResponse;
 import com.ag.grid.enterprise.oracle.demo.dao.TradeDao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -24,7 +24,7 @@ public class TradeController {
 
     @RequestMapping(method = POST, value = "/getRows")
     @ResponseBody
-    public EnterpriseGetRowsResponse getRows(@RequestBody EnterpriseGetRowsRequest request) {
+    public ServerSideGetRowsResponse getRows(@RequestBody ServerSideGetRowsRequest request) {
         return tradeDao.getData(request);
     }
 }

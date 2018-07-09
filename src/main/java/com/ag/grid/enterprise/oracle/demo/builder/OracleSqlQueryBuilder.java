@@ -4,7 +4,7 @@ import com.ag.grid.enterprise.oracle.demo.filter.ColumnFilter;
 import com.ag.grid.enterprise.oracle.demo.filter.NumberColumnFilter;
 import com.ag.grid.enterprise.oracle.demo.filter.SetColumnFilter;
 import com.ag.grid.enterprise.oracle.demo.request.ColumnVO;
-import com.ag.grid.enterprise.oracle.demo.request.EnterpriseGetRowsRequest;
+import com.ag.grid.enterprise.oracle.demo.request.ServerSideGetRowsRequest;
 import com.ag.grid.enterprise.oracle.demo.request.SortModel;
 import com.google.common.collect.Sets;
 import org.apache.commons.lang3.tuple.Pair;
@@ -23,7 +23,7 @@ import static java.util.stream.Collectors.*;
 import static java.util.stream.Stream.concat;
 
 /**
- * Builds Oracle SQL queries from an EnterpriseGetRowsRequest.
+ * Builds Oracle SQL queries from an ServerSideGetRowsRequest.
  */
 public class OracleSqlQueryBuilder {
 
@@ -40,7 +40,7 @@ public class OracleSqlQueryBuilder {
     private Map<String, List<String>> pivotValues;
     private boolean isPivotMode;
 
-    public String createSql(EnterpriseGetRowsRequest request, String tableName, Map<String, List<String>> pivotValues) {
+    public String createSql(ServerSideGetRowsRequest request, String tableName, Map<String, List<String>> pivotValues) {
         this.valueColumns = request.getValueCols();
         this.pivotColumns = request.getPivotCols();
         this.groupKeys = request.getGroupKeys();
